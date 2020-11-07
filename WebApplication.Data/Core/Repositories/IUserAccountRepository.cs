@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq.Expressions;
-using WebApplication.Data.Core.WebApplicationEntities;
+using WebApplication.Data.Core.EntityModels;
 
 namespace WebApplication.Data.Core.Repositories
 {
