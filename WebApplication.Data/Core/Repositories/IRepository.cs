@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
+using WebApplication.Data.Core.EntityModels;
 
 namespace WebApplication.Data.Core.Repositories
 {
@@ -10,7 +12,7 @@ namespace WebApplication.Data.Core.Repositories
     /// See Repository Pattern for more information.
     /// (Also See UnitOfWork Pattern for why there is no UPDATE functions here)
     /// </summary>
-    /// <typeparam name="TEntity">The Entity Class you would like to create the Repository for</typeparam>
+    /// <typeparam name="TEntity">The entity class used when creating the repository interface</typeparam>
     public interface IRepository<TEntity> where TEntity : class
     {
         TEntity Get(Guid id);

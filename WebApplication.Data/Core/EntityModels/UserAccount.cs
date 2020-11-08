@@ -1,9 +1,12 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebApplication.Data.Core.EntityModels
 {
+    //TODO I may end up extending Microsoft IdentityUser at some point. Trying to keep things simple for now.
     public class UserAccount
     {
+        [Key]
         public Guid Guid { get; set; }
         public string Username { get; set; }
         public string Email { get; set; }
