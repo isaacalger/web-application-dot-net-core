@@ -13,6 +13,6 @@ namespace WebApplication.Data.Core
     {
         IUserAccountRepository Users { get; }
 
-        int Complete();
+        int Commit();
     }
 }

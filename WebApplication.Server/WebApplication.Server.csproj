@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>d50437a1-0cd6-4ed4-933b-8eed04dbd3d1</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,5 +13,14 @@
     <None Include="Services\EmailService\IEmailService.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\WebApplication.Data\WebApplication.Data.csproj" />
+  </ItemGroup>
 </Project>
