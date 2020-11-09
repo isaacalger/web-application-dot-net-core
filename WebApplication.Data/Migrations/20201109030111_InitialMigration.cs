@@ -3,10 +3,24 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebApplication.Data.Migrations
 {
-    public partial class AddedSeedUserAccounts : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "UserAccounts",
+                columns: table => new
+                {
+                    Guid = table.Column<Guid>(nullable: false),
+                    Username = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true),
+                    PasswordHash = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserAccounts", x => x.Guid);
+                });
+
             migrationBuilder.InsertData(
                 table: "UserAccounts",
                 columns: new[] { "Guid", "Email", "PasswordHash", "Username" },
@@ -20,15 +34,8 @@ namespace WebApplication.Data.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DeleteData(
-                table: "UserAccounts",
-                keyColumn: "Guid",
-                keyValue: new Guid("20000000-0000-0000-0000-000000000001"));
-
-            migrationBuilder.DeleteData(
-                table: "UserAccounts",
-                keyColumn: "Guid",
-                keyValue: new Guid("20000000-0000-0000-0000-000000000002"));
+            migrationBuilder.DropTable(
+                name: "UserAccounts");
         }
     }
 }
