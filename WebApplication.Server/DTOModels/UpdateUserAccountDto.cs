@@ -1,6 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using WebApplication.Data.Core.EntityModels;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace WebApplication.Server.DTOModels
 {

@@ -3,7 +3,6 @@ using System.Linq;
 using Autofac.Extras.Moq;
 using WebApplication.Data.Core.EntityModels;
 using WebApplication.Data.Core.Repositories;
-using WebApplication.Data.Persistence.Repositories;
 using WebApplication.Server.Controllers.V1;
 using Xunit;
 // ReSharper disable ConvertToUsingDeclaration
