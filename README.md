@@ -2,9 +2,9 @@
 test .net core 3.1 web application starting point.
 
 The Solution is structured as followed
-- WebApplication.Data 			(Data Access Layer)
--- Core
---- EntityModels
+* WebApplication.Data 			(Data Access Layer)
+	* Core
+		* EntityModels
 --- Reposities
 -- Migrations
 --- SeedData
