@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using WebApplication.Data.Core.EntityModels;
 
-namespace WebApplication.Data.Migrations.SeedData
+namespace WebApplication.TestData
 {
-    public class UserAccountSeedData
+    public class UserAccountRepositoryData
     {
-        public List<UserAccount> GetSeedUserAccounts()
+
+        public List<UserAccount> GetUserAccounts()
         {
             return new List<UserAccount>()
             {

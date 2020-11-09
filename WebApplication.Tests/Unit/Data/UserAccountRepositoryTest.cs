@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using Autofac.Extras.Moq;
 using Moq;
@@ -13,26 +12,7 @@ namespace WebApplication.Tests.Unit.Data
 {
     public class UserAccountRepositoryTest
     {
-        public List<UserAccount> GetUserAccounts()
-        {
-            return new List<UserAccount>()
-            {
-                new UserAccount
-                {
-                    Guid = Guid.Parse("20000000-0000-0000-0000-000000000001"),
-                    Email = "IsaacAlger@gmail.com",
-                    Username = "IsaacAlger",
-                    PasswordHash = "TestHash"
-                },
-                new UserAccount
-                {
-                    Guid = Guid.Parse("20000000-0000-0000-0000-000000000002"),
-                    Email = "IsaacAlger2@gmail.com",
-                    Username = "IsaacAlger2",
-                    PasswordHash = "TestHash2"
-                }
-            };
-        }
+
 
         [Fact]
         public void GetAll_ShouldGetAllMockedUserAccounts()
@@ -40,14 +20,13 @@ namespace WebApplication.Tests.Unit.Data
             using (var mockRepository = AutoMock.GetLoose())
             {
                 //Arrange
-                var expected = GetUserAccounts();
+                var expected = TestData.GetUserAccounts();
 
                 mockRepository.Mock<IUserAccountRepository>()
                     .Setup(r => r.GetAll())
-                    .Returns(GetUserAccounts());
+                    .Returns(expected);
 
                 //Act
-                //TODO This needs to go through a processor and not the UserAccountRepository
                 var userAccountRepository = mockRepository.Create<IUserAccountRepository>();
                 var actual = userAccountRepository.GetAll();
 
@@ -58,19 +37,19 @@ namespace WebApplication.Tests.Unit.Data
         }
 
         [Fact]
-        public void Get_ShouldReturnCorrectRecordOrNull()
+        public void Get_ShouldReturnCorrectRecord()
         {
             using (var mockRepository = AutoMock.GetLoose())
             {
                 //Arrange
-                foreach (var userAccount in GetUserAccounts())
+                var expected = TestData.GetUserAccounts();
+                foreach (var userAccount in expected)
                 {
                     mockRepository.Mock<IUserAccountRepository>()
                         .Setup(r => r.Get(userAccount.Guid))
-                        .Returns(GetUserAccounts().Find(u => u.Guid == userAccount.Guid));
+                        .Returns(expected.Find(u => u.Guid == userAccount.Guid));
 
                     //Act
-                    //TODO This needs to go through a processor and not the UserAccountRepository
                     var userAccountRepository = mockRepository.Create<IUserAccountRepository>();
                     var actualUserAccount = userAccountRepository.Get(userAccount.Guid);
 
@@ -102,7 +81,6 @@ namespace WebApplication.Tests.Unit.Data
                     .Setup(r => r.Add(expectedUserAccount));
 
                 //Act
-                //TODO This needs to go through a processor and not the UserAccountRepository
                 var userAccountRepository = mockRepository.Create<IUserAccountRepository>();
                 userAccountRepository.Add(expectedUserAccount);
 
@@ -117,7 +95,7 @@ namespace WebApplication.Tests.Unit.Data
         {
             using (var mockRepository = AutoMock.GetLoose())
             {
-                var expected = GetUserAccounts();
+                var expected = TestData.GetUserAccounts();
 
                 mockRepository.Mock<IUserAccountRepository>()
                     .Setup(r => r.AddRange(expected));
@@ -150,7 +128,6 @@ namespace WebApplication.Tests.Unit.Data
                     .Setup(r => r.Remove(expectedUserAccount));
 
                 //Act
-                //TODO This needs to go through a processor and not the UserAccountRepository
                 var userAccountRepository = mockRepository.Create<IUserAccountRepository>();
                 userAccountRepository.Remove(expectedUserAccount);
 
@@ -166,13 +143,12 @@ namespace WebApplication.Tests.Unit.Data
             using (var mockRepository = AutoMock.GetLoose())
             {
                 //Arrange
-                var expected = GetUserAccounts();
+                var expected = TestData.GetUserAccounts();
 
                 mockRepository.Mock<IUserAccountRepository>()
                     .Setup(r => r.RemoveRange(expected));
 
                 //Act
-                //TODO This needs to go through a processor and not the UserAccountRepository
                 var userAccountRepository = mockRepository.Create<IUserAccountRepository>();
                 userAccountRepository.RemoveRange(expected);
 

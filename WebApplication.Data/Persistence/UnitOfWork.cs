@@ -1,20 +1,20 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using WebApplication.Data.Core;
 using WebApplication.Data.Core.Repositories;
 
 namespace WebApplication.Data.Persistence
 {
-    public class DataAccessLayer : IDataAccessLayer
+    public class UnitOfWork : IUnitOfWork
     {
+        // Todo I may want to Interface with the Context as well so that I am not tied to EF.
         private readonly WebApplicationDbContext _context;
 
-        public DataAccessLayer(WebApplicationDbContext context)
+        public UnitOfWork(WebApplicationDbContext context)
         {
             _context = context;
         }
 
-        public IUserAccountRepository Users { get; }
+        public IUserAccountRepository UserAccounts { get; }
 
         public void Dispose()
         {

@@ -9,7 +9,7 @@ namespace WebApplication.Data.Persistence.Repositories
 {
     public class UserAccountRepository : Repository<UserAccount>, IUserAccountRepository
     {
-        public UserAccountRepository(DbContext context) : base(context)
+        public UserAccountRepository(WebApplicationDbContext context) : base(context)
         { }
 
         public UserAccount FirstOrDefault(Expression<Func<UserAccount, bool>> predicate)
