@@ -5,6 +5,9 @@ namespace WebApplication.Data.Migrations.SeedData
 {
     public static class ModelBuilderExtensions
     {
+
+        // Todo I need to add a Configure method to take in the configurations.
+
         public static void SeedData(this ModelBuilder modelBuilder)
         {
             modelBuilder.SeedUsers();
@@ -12,9 +15,6 @@ namespace WebApplication.Data.Migrations.SeedData
 
         private static void SeedUsers(this ModelBuilder modelBuilder)
         {
-
-            var test = new UserAccountSeedData();
-
             modelBuilder.Entity<UserAccount>().HasData(
                 new UserAccountSeedData().GetSeedUserAccounts()
             );

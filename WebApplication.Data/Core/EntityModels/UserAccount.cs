@@ -16,6 +16,5 @@ namespace WebApplication.Data.Core.EntityModels
         {
             Guid = Guid.NewGuid();
         }
-
     }
 }

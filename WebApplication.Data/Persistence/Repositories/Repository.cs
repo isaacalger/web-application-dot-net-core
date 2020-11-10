@@ -16,8 +16,6 @@ namespace WebApplication.Data.Persistence.Repositories
             Context = context;
         }
 
-        public DbSet<TEntity> Entities { get; set; }
-
         public TEntity Get(Guid id)
         {
             return Context.Set<TEntity>().Find(id.ToString());
@@ -31,6 +29,11 @@ namespace WebApplication.Data.Persistence.Repositories
         public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
         {
             return Context.Set<TEntity>().Where(predicate);
+        }
+
+        public TEntity FirstOrDefault(Expression<Func<TEntity, bool>> predicate)
+        {
+            return Context.Set<TEntity>().FirstOrDefault(predicate);
         }
 
         public TEntity SingleOrDefault(Expression<Func<TEntity, bool>> predicate)

@@ -74,7 +74,7 @@ namespace WebApplication.Server.Controllers.V1
             var userAccountGuid = Guid.NewGuid();
             var userAccount = new UserAccount
             {
-                Guid = userAccountGuid,
+                //Guid = userAccountGuid,
                 Email = registerUserAccountDto.Email,
                 PasswordHash = registerUserAccountDto.Password.GetHashCode().ToString() // TODO Add Actual Hashing Algorithm
             };
@@ -103,7 +103,7 @@ namespace WebApplication.Server.Controllers.V1
 
         private UserAccount UserAccountExists(Guid id)
         {
-            return _unitOfWork.UserAccounts.FirstOrDefault(u => u.Guid == id);
+            return _unitOfWork.UserAccounts.SingleOrDefault(u => u.Guid == id);
         }
     }
 }

@@ -4,7 +4,6 @@ namespace WebApplication.Server.DTOModels
 {
     public class UpdateUserAccountDto
     {
-
         public string Username { get; set; }
 
         [Required]

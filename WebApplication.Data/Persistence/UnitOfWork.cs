@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WebApplication.Data.Core;
 using WebApplication.Data.Core.Repositories;
+using WebApplication.Data.Persistence.Repositories;
 
 namespace WebApplication.Data.Persistence
 {
@@ -12,6 +13,7 @@ namespace WebApplication.Data.Persistence
         public UnitOfWork(WebApplicationDbContext context)
         {
             _context = context;
+            UserAccounts = new UserAccountRepository(context);
         }
 
         public IUserAccountRepository UserAccounts { get; }

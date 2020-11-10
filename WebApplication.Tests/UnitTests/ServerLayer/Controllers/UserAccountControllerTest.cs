@@ -5,9 +5,10 @@ using WebApplication.Data.Core.EntityModels;
 using WebApplication.Data.Core.Repositories;
 using WebApplication.Server.Controllers.V1;
 using Xunit;
+
 // ReSharper disable ConvertToUsingDeclaration
 
-namespace WebApplication.Tests.Unit.Server.Controllers
+namespace WebApplication.Tests.UnitTests.ServerLayer.Controllers
 {
     public class UserAccountControllerTest
     {

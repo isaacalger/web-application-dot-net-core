@@ -5,10 +5,11 @@ using Moq;
 using WebApplication.Data.Core.EntityModels;
 using WebApplication.Data.Core.Repositories;
 using Xunit;
+
 // ReSharper disable ConvertToUsingDeclaration
 // This is a personal preference I think its easier to read Using blocks
 
-namespace WebApplication.Tests.Unit.Data
+namespace WebApplication.Tests.UnitTests.DataLayer
 {
     public class UserAccountRepositoryTest
     {
